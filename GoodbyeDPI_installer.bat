@@ -31,7 +31,7 @@ Push-Location $subdir
 echo "    6. Applying MGTS patch..."
 $filePath = "service_install_russia_blacklist.cmd"
 $pattern = "-9 --blacklist"
-$replacement = "-9 -e1 -f1 --blacklist"
+$replacement = "-7 -e1 -f1 --blacklist"
 $content = Get-Content -Path $filePath -Raw
 $newContent = $content -replace [regex]::Escape($pattern), $replacement
 Set-Content -Path $filePath -Value $newContent -Force
