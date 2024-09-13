@@ -41,5 +41,5 @@ if ( $? -eq $true ) { echo "    OK!" } else { [System.Windows.MessageBox]::Show(
 Pop-Location
 Pop-Location
 Remove-Item -Path $asset.name
-$msg4 = [System.Windows.Forms.MessageBox]::Show("GoodbyeDPI installed.`n`nOpen Youtube for test?" , "GoodbyeDPI installer" , 4, "Question")
+$msg4 = [System.Windows.Forms.MessageBox]::Show("GoodbyeDPI installed.`n`nOpen Youtube to test?" , "GoodbyeDPI installer" , 4, "Question")
 if ($msg4 -eq 'Yes') { Start-Process -filePath "https://youtube.com" }
