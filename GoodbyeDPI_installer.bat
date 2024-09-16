@@ -29,9 +29,9 @@ Push-Location -Path $([System.IO.Path]::GetFileNameWithoutExtension($asset.name)
 $subdir = Get-ChildItem -Directory | Select-Object -First 1 -ExpandProperty Name
 Push-Location $subdir
 echo "    6. Applying MGTS patch..."
-$filePath = "service_install_russia_blacklist.cmd"
-$pattern = "-9 --blacklist"
-$replacement = "-7 -e1 -f1 --blacklist"
+$filePath = "service_install_russia_blacklist_YOUTUBE_ALT.cmd"
+$pattern = "-5 -e1 -q"
+$replacement = "-7 -e1 -f1 -q"
 $content = Get-Content -Path $filePath -Raw
 $newContent = $content -replace [regex]::Escape($pattern), $replacement
 Set-Content -Path $filePath -Value $newContent -Force
