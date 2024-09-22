@@ -35,6 +35,12 @@ $replacement = "-7 -e1 -f1 -q"
 $content = Get-Content -Path $filePath -Raw
 $newContent = $content -replace [regex]::Escape($pattern), $replacement
 Set-Content -Path $filePath -Value $newContent -Force
+$content = Get-Content -Path $filePath -Raw
+$pattern = "160301FFFF01FFFFFF0303594F5552204144564552544953454D454E542048455245202D202431302F6D6F000000000009000000050003000000"
+$replacement = ""
+for ($i=0;$i -lt 116;$i++){$replacement += (Get-Random -Minimum 0 -Maximum 16).ToString("X")}
+$newContent = $content -replace [regex]::Escape($pattern), $replacement
+Set-Content -Path $filePath -Value $newContent -Force
 echo "    7. Installing latest version..."
 Start-Process -FilePath "cmd" -ArgumentList "/c echo.|$($filepath) 1>nul 2>nul"
 if ( $? -eq $true ) { echo "    OK!" } else { [System.Windows.MessageBox]::Show("Error!`n`nYou have to install a VPN service :(", "GoodbyeDPI installer", "OK", "Critical") }
